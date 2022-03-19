@@ -4,6 +4,7 @@ import { ApolloServer } from "apollo-server-express";
 import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
 import { typeDefs, resolvers } from "./graphql/schema";
 import { connectionDB } from "./db";
+import {PORT} from './config'
 
 async function startApolloServer() {
   await connectionDB();
@@ -21,7 +22,7 @@ async function startApolloServer() {
   server.applyMiddleware({ app });
 
   await new Promise<void>((resolve) =>
-    httpServer.listen({ port: 4000 }, resolve)
+    httpServer.listen({ port: PORT}, resolve)
   );
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
 }
