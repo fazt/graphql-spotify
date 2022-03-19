@@ -1,5 +1,5 @@
 import { gql } from "apollo-server-express";
-import { typeDefs as Song, resolvers as SongResolvers } from "./songs.js";
+import { typeDefs as Song, resolvers as SongResolvers } from "./songs";
 
 export const rootTypeDefs = gql`
   type Query {

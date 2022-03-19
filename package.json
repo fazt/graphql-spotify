@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --inspect src/index.js",
+    "dev": "ts-node-dev --respawn src",
+    "build": "tsc",
     "start": "node dist"
   },
   "keywords": [],
@@ -19,7 +20,7 @@
     "mongoose": "^6.2.6"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^4.6.2"
   }
 }

@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.resolvers = exports.typeDefs = void 0;
 const apollo_server_core_1 = require("apollo-server-core");
-const song_model_js_1 = __importDefault(require("../models/song.model.js"));
+const song_model_1 = __importDefault(require("../models/song.model"));
 exports.typeDefs = (0, apollo_server_core_1.gql) `
   type Song {
     _id: ID
@@ -40,7 +40,7 @@ exports.typeDefs = (0, apollo_server_core_1.gql) `
 exports.resolvers = {
     Query: {
         getSongs: () => __awaiter(void 0, void 0, void 0, function* () {
-            return yield song_model_js_1.default.find();
+            return yield song_model_1.default.find();
         }),
     },
     Mutation: {
@@ -48,7 +48,7 @@ exports.resolvers = {
             return __awaiter(this, void 0, void 0, function* () {
                 const { name, genre, author } = args.input;
                 console.log(args);
-                const newSong = new song_model_js_1.default({
+                const newSong = new song_model_1.default({
                     name,
                     genre,
                     author,

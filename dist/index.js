@@ -18,6 +18,7 @@ const apollo_server_express_1 = require("apollo-server-express");
 const apollo_server_core_1 = require("apollo-server-core");
 const schema_1 = require("./graphql/schema");
 const db_1 = require("./db");
+const config_1 = require("./config");
 function startApolloServer() {
     return __awaiter(this, void 0, void 0, function* () {
         yield (0, db_1.connectionDB)();
@@ -30,7 +31,7 @@ function startApolloServer() {
         });
         yield server.start();
         server.applyMiddleware({ app: app_1.default });
-        yield new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
+        yield new Promise((resolve) => httpServer.listen({ port: config_1.PORT }, resolve));
         console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
     });
 }

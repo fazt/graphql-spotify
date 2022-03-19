@@ -14,10 +14,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.connectionDB = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
-const config_js_1 = require("./config.js");
+const config_1 = require("./config");
 const connectionDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield mongoose_1.default.connect(config_js_1.MONGODB_URI);
+        yield mongoose_1.default.connect(config_1.MONGODB_URI);
     }
     catch (error) {
         console.error(error);
@@ -25,5 +25,5 @@ const connectionDB = () => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.connectionDB = connectionDB;
 mongoose_1.default.connection.on('connected', () => {
-    console.log(`Mongoose connected to ${config_js_1.MONGODB_URI}`);
+    console.log(`Mongoose connected to ${config_1.MONGODB_URI}`);
 });

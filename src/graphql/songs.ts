@@ -1,5 +1,5 @@
 import { gql } from "apollo-server-core";
-import Song from "../models/song.model.js";
+import Song from "../models/song.model";
 
 export const typeDefs = gql`
   type Song {
