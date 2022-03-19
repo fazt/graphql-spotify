@@ -31,7 +31,7 @@ export const resolvers = {
     },
   },
   Mutation: {
-    async uploadSong(_, args) {
+    async uploadSong(_: any, args: any) {
       const { name, genre, author } = args.input;
       console.log(args);
       const newSong = new Song({

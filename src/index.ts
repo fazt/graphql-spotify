@@ -1,13 +1,12 @@
-import app from "./app.js";
+import app from "./app";
 import { createServer } from "http";
 import { ApolloServer } from "apollo-server-express";
 import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
-import { typeDefs, resolvers } from "./graphql/schema.js";
-import {connectionDB} from './db.js'
-
+import { typeDefs, resolvers } from "./graphql/schema";
+import { connectionDB } from "./db";
 
 async function startApolloServer() {
-  await connectionDB()
+  await connectionDB();
   const httpServer = createServer(app);
 
   // grapql server
@@ -21,7 +20,9 @@ async function startApolloServer() {
 
   server.applyMiddleware({ app });
 
-  await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
+  await new Promise<void>((resolve) =>
+    httpServer.listen({ port: 4000 }, resolve)
+  );
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
 }
 
